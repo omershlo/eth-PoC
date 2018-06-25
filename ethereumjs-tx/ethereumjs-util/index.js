@@ -350,7 +350,8 @@ exports.ecsign = function (msgHash, privateKey) {
 
 exports.ecsign2 = function(msgHash,mpcSignParams,addressEth){
   const hash2 = msgHash.toString('hex');
-  const signM = require('../../sign2Red_sid');
+  //const signM = require('../../sign2Red_sid');
+  const signM = require('../../sign2');
   const signMPC = signM.sign;
   const ret = {}
   const serverCache = {}; 
@@ -371,6 +372,7 @@ exports.ecsign2 = function(msgHash,mpcSignParams,addressEth){
   var r = Buffer.from(signature_r.toString(16),'hex');
   var s = Buffer.from(signature_s.toString(16),'hex');
   var v = 27 + recid2;
+
   //console.log(this.publicToAddress(this.ecrecover(msgHash, v, r, s)))
 
   ret.r =r ; 
